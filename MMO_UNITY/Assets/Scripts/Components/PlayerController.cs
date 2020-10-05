@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
         // 구독신청
         Manager.Input.KeyAction -= OnKeyboard;
         Manager.Input.KeyAction += OnKeyboard;

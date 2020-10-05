@@ -24,5 +24,24 @@ public class TestCollision : MonoBehaviour
     void Update()
     {
         
+
+        Vector3 look = transform.TransformDirection(Vector3.forward);
+        Debug.DrawRay(transform.position + Vector3.up, look * 10, Color.red);
+
+        // RaycastHit hit;
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(transform.position + Vector3.up, look, 10);
+        // Physics.RaycastAll(transform.position + Vector3.up, look, out hit, 10);
+        //if (Physics.Raycast(transform.position + Vector3.up, look, out hit, 10))
+        //{
+        //    Debug.Log($"Physics.Raycast + {hit.collider.gameObject.name}");
+        // }// -> 만났는지 안만났는지 true / false 반환
+
+        foreach(RaycastHit hit in hits)
+        {
+            Debug.Log($"Raycast : {hit.collider.gameObject.name}");
+        }
+     
+
     }
 }
